@@ -8,7 +8,6 @@ const Statistics = ({
   onCountPositiveFeedbackPercentage,
 }) => (
   <div>
-    <h2>Statictics</h2>
     <p>
       Good:<span>{good}</span>
     </p>
