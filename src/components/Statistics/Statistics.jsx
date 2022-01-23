@@ -1,4 +1,5 @@
 import React from 'react';
+import { StatisticsWrapper, StatisticsInfo } from './Statistics.styled';
 
 const Statistics = ({
   good,
@@ -7,23 +8,23 @@ const Statistics = ({
   onCountTotalFeedBack,
   onCountPositiveFeedbackPercentage,
 }) => (
-  <div>
-    <p>
+  <StatisticsWrapper>
+    <StatisticsInfo>
       Good:<span>{good}</span>
-    </p>
-    <p>
+    </StatisticsInfo>
+    <StatisticsInfo>
       Neutral:<span>{neutral}</span>
-    </p>
-    <p>
+    </StatisticsInfo>
+    <StatisticsInfo>
       Bad:<span>{bad}</span>
-    </p>
-    <p>
+    </StatisticsInfo>
+    <StatisticsInfo>
       Total:<span>{onCountTotalFeedBack}</span>
-    </p>
-    <p>
-      Positive feedback:<span>{onCountPositiveFeedbackPercentage}%</span>
-    </p>
-  </div>
+    </StatisticsInfo>
+    <StatisticsInfo>
+      Positive feedback:<span>{onCountPositiveFeedbackPercentage} %</span>
+    </StatisticsInfo>
+  </StatisticsWrapper>
 );
 
 export default Statistics;

@@ -8,6 +8,7 @@ export const GlobalStyle = createGlobalStyle`
 body,
 html {
   height: 100%;
+  background: linear-gradient(#e66465, #9198e5);
 }
 img,
 picture,
@@ -40,10 +41,8 @@ a {
   color: inherit;
 }
 button {
-  ${
-    '' /* border: none;
-  background-color: transparent; */
-  }
+  border: none;
+  background-color: transparent;  
   cursor: pointer;
 }
 `;

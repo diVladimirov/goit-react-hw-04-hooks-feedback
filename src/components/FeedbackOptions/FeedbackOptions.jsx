@@ -1,13 +1,14 @@
 import React from 'react';
+import { FeedbackOptionsWrapper, FeedbackOptionsButton } from './FeedbackOptions.styled';
 
 const FeedbackOptions = ({ options, onLeaveFeedback }) => (
-  <div>
+  <FeedbackOptionsWrapper>
     {options.map(option => (
-      <button type="button" key={option} value={option} onClick={onLeaveFeedback}>
+      <FeedbackOptionsButton type="button" key={option} value={option} onClick={onLeaveFeedback}>
         {option}
-      </button>
+      </FeedbackOptionsButton>
     ))}
-  </div>
+  </FeedbackOptionsWrapper>
 );
 
 export default FeedbackOptions;
