@@ -9,6 +9,7 @@ const App = () => {
   const [good, setGood] = useState(0);
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
+  const options = Object.keys({ good, neutral, bad });
 
   const handelIncrement = event => {
     const { value } = event.target;
@@ -34,16 +35,10 @@ const App = () => {
     return good + neutral + bad;
   };
 
-  const totalFeedBack = countTotalFeedback();
-
   const countPositiveFeedbackPercentage = () => {
-    const positivePercentage = Math.round((good / (totalFeedBack - neutral)) * 100);
+    const positivePercentage = Math.round((good / (countTotalFeedback() - neutral)) * 100);
     return positivePercentage ? positivePercentage : 0;
   };
-
-  const PositiveFeedbackPercentage = countPositiveFeedbackPercentage();
-
-  const options = Object.keys({ good, neutral, bad });
 
   return (
     <>
@@ -52,13 +47,13 @@ const App = () => {
         <FeedbackOptions options={options} onLeaveFeedback={handelIncrement} />
       </Section>
       <Section title={'Statistics'}>
-        {totalFeedBack > 0 ? (
+        {countTotalFeedback() > 0 ? (
           <Statistics
             good={good}
             neutral={neutral}
             bad={bad}
-            onCountTotalFeedBack={totalFeedBack}
-            onCountPositiveFeedbackPercentage={PositiveFeedbackPercentage}
+            onCountTotalFeedBack={countTotalFeedback()}
+            onCountPositiveFeedbackPercentage={countPositiveFeedbackPercentage()}
           />
         ) : (
           <Notifications message={'There is no feedback'} />
